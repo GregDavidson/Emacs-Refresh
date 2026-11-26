@@ -3,14 +3,57 @@
 DRAFT * DRAFT * DRAFT
 - This is *NOT YET READY FOR YOU*!
 
-Emacs > version 31.1 is now more powerful and more mature.
-- Less configuration is required to make it perform well.
-- Better packages are available.
-- Emacs is easier to hack on
-  - Lexical Binding
-  - Many Common Lisp features
-  - et al
+- Current Name :: Emacs-New
+- Possible Better Names
+  - Emacs-Over-30
+  - Emacs-Refresh
+
+Emacs > version 31 is more powerful and more mature:
+- Less configuration is required to make it perform well,
+- Better packages are available,
+- Easier to hack given
+  - Lexical Binding,
+  - many Common Lisp features,
+  - and more!
 
 It's time for a new Emacs Profile!
-- Simpler as well as more elegant than what I've done before!
-- Somewhat inspired by Emacs-Bedrock
+- Smaller, Simpler yet More Powerful = Better!
+- Inspired by Emacs-Bedrock but (of course) deviating!
+
+** Installing ~Emacs-Refresh~
+
+Clone our repository
+
+Move your extensions to ~/.emacs.d/My-Emacs
+- Either: clone our repository to your ~/.emacs.d
+- Or:
+  - Clone our repository to a stable place
+    - We put them under ~/Gits on our systems
+  - link our top-level files to your ~/.emacs.d
+  - You can do this manually or run
+      - make install # from our working directory
+      - if you have a POSIX Unix/Linux/BSD Development Platform
+
+** Emacs-Refresh is /Non-Destructively Hackable!/
+
+- Our init files automatically load your files!
+  - early-init.el loads ~My-Emacs/early-init.el~ /first/ if it exists
+  - init.el loads ~My-Emacs/init.el~ /last/ if it exists
+
+- So don't change any of our files, i.e.
+  - early-init.el or init.el
+  - or anything under Emacs-Refresh/
+
+- Suppress or modify any of the features we provide
+  - with feature flags in your ~My-Emacs/early-init.el~ file
+  - read our ~early-init.el~ for more details!
+- Put your extensions in My-Emacs/init.el
+  - and load any other files you like from there!
+
+You can put your files anywhere in your ~/.emacs.d as you like
+- but note that a number of Emacs Packages 
+
+      the main .el files here, you can do all of your own
+  hacking in your own files, and then simply do a
+  ~git update~ on the repository to get any improvements
+  without messing with 
