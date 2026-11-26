@@ -22,17 +22,40 @@ It's time for a new Emacs Profile!
 
 ** Installing ~Emacs-Refresh~
 
-Clone our repository
-
+You'll be cloning our repository, but where would you like to put it?
+- Let's assume you initially put in under ~/Gits/Emacs-new
+  - From a Posix Shell (bash, zsh or ksh)
+    - cd # make sure you're in your home directory
+    - mkdir -p Gits # create a subdirectory for git repositories
+    - git clone 
+    - 
+- We recommend either cloning it into your ~/.emacs.d
+  - This is best if you're using MicroSoft Windows
+    - it lacks POSIX symbolic links
+  - It's also fine on a POSIX system!
+- Or: if you have a POSIX (Unix/Linux/BSD) System
 Move your extensions to ~/.emacs.d/My-Emacs
-- Either: clone our repository to your ~/.emacs.d
-- Or:
+
+  - /MacOS doesn't provide POSIX Build Tools by default!/
   - Clone our repository to a stable place
-    - We put them under ~/Gits on our systems
+    - We put them under ~/Gits/ on our systems
+  - If you have POSIX Build Tools you can
+    - Using a Command Shell from our Working Directory
+      - cd ~/Gits/Emacs-Refresh # or wherever you put it
+      - make install # if you trust us, or:
+      - make -n install # to see a dry-run first!
+  - Or you can finish the install manually from the shell
+    - Assuming your shell is bash, zsh or ksh
+    - cd ~/Gits/Emacs-Refresh # or wherever you put it
+    - mkdir -p ~/.emacs.d/My-Emacs
+    - mv -f ~/.emacs ~/emacs.d/early-init.el ~/.emacs.d/init.d ~/.emacs.d/My-Emacs
+    - ln -s  ~+/early-init.el ~+/.emacs.d/init.d ~+/Emacs-Refresh ~/.emacs.d/
+
+
   - link our top-level files to your ~/.emacs.d
-  - You can do this manually or run
-      - make install # from our working directory
-      - if you have a POSIX Unix/Linux/BSD Development Platform
+  - Either manually, or run: make install
+    - from our working directory
+    - if you have POSIX Build Tools
 
 ** Emacs-Refresh is /Non-Destructively Hackable!/
 
