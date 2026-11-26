@@ -1,17 +1,23 @@
 * Emacs New
 
 DRAFT * DRAFT * DRAFT
-- This is *NOT YET READY FOR YOU*!
+- *This repository is NOT YET READY FOR YOU*!
 
-- Current Name :: Emacs-New
-- Possible Better Names
-  - Emacs-Over-30
-  - Emacs-Refresh
+- Repository Name :: Emacs-Refresh
+- Alternate Name :: Emacs-Over-30
+
+Note: If you're reading this file from Emacs in Org-Mode then
+- Pressing TAB repeatedly on any header line
+  - i.e., lines beginning with * characters, a space, and a title
+- collapses or expands the section(s) under that header,
+- so you can ignore the parts of this document you don't care about!
+
+** Why Are We Creating The Emacs-Refresh Emacs Profile?
 
 Emacs > version 31 is more powerful and more mature:
 - Less configuration is required to make it perform well,
-- Better packages are available,
-- Easier to hack given
+- better packages are available,
+- and it's easier to hack given
   - Lexical Binding,
   - many Common Lisp features,
   - and more!
@@ -20,63 +26,109 @@ It's time for a new Emacs Profile!
 - Smaller, Simpler yet More Powerful = Better!
 - Inspired by Emacs-Bedrock but (of course) deviating!
 
-** Installing ~Emacs-Refresh~
+Emacs-Refresh is New!
+- It doesn't yet have all of the customizations we would like!
+- It may never provide all of the customizations you would like!
+- Emacs-Refresh is eminently hackable:
+- It is designed to make it easier for you to further customize it!
 
-You'll be cloning our repository, but where would you like to put it?
-- Let's assume you initially put in under ~/Gits/Emacs-new
-  - From a Posix Shell (bash, zsh or ksh)
-    - cd # make sure you're in your home directory
-    - mkdir -p Gits # create a subdirectory for git repositories
-    - git clone 
-    - 
-- We recommend either cloning it into your ~/.emacs.d
-  - This is best if you're using MicroSoft Windows
-    - it lacks POSIX symbolic links
-  - It's also fine on a POSIX system!
-- Or: if you have a POSIX (Unix/Linux/BSD) System
-Move your extensions to ~/.emacs.d/My-Emacs
+** Installing Emacs-Refresh
 
-  - /MacOS doesn't provide POSIX Build Tools by default!/
-  - Clone our repository to a stable place
-    - We put them under ~/Gits/ on our systems
-  - If you have POSIX Build Tools you can
-    - Using a Command Shell from our Working Directory
-      - cd ~/Gits/Emacs-Refresh # or wherever you put it
-      - make install # if you trust us, or:
-      - make -n install # to see a dry-run first!
-  - Or you can finish the install manually from the shell
-    - Assuming your shell is bash, zsh or ksh
-    - cd ~/Gits/Emacs-Refresh # or wherever you put it
-    - mkdir -p ~/.emacs.d/My-Emacs
-    - mv -f ~/.emacs ~/emacs.d/early-init.el ~/.emacs.d/init.d ~/.emacs.d/My-Emacs
-    - ln -s  ~+/early-init.el ~+/.emacs.d/init.d ~+/Emacs-Refresh ~/.emacs.d/
+*** If you're on an Apple Macintosh System
+- MacOS is based on a [[https://en.wikipedia.org/wiki/POSIX][POSIX]] ([[https://en.wikipedia.org/wiki/List_of_BSD_operating_systems][BSD]]) Operating System, but:
+  - Apple doesn't provide Developer (Build) Tools by default!
+  - You'll want to install at least ~git~ and ~make~ and ~emacs~
+- You have many options, here are two:
+  - You can install [[https://developer.apple.com/documentation/xcode/installing-the-command-line-tools][Apple's POSIX Developer Tools]]
+    - Note that some of these tools are a bit out of date!
+  - You can use [[https://brew.sh/][The Homebrew Package Manager]]
+    - Homebrew provides more packages and they're more up-to-date!
 
+*** If you're on a Microsoft Windows System
+- You could install Microsoft's [[https://learn.microsoft.com/en-us/windows/wsl/install][Windows Subsystem for Linux]]
+  - and then do things the [[https://en.wikipedia.org/wiki/POSIX][POSIX]] (GNU/Linux) way inside that VM
+- You could install everything you need as Native Microsoft Windows Applications
+  - [[https://git-scm.com/install/windows][Installing Git for Microsoft Windows]]
+    - You'll run ~git~ from a Microsoft Windows "Command Prompt"
+  - [[https://www.gnu.org/software/emacs/download.html][Installing GNU-Emacs on Microsoft Windows (or any other platform)]]
+    - You can run Emacs as a Microsoft Windows Graphical Application
+    - You'll want to read [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-HOME.html][Emacs Profile under Microsoft Windows]]
 
-  - link our top-level files to your ~/.emacs.d
-  - Either manually, or run: make install
-    - from our working directory
-    - if you have POSIX Build Tools
+*** Where Should You Put Our Repository FIRST?
+
+Let's assume you initially put in under ~/Gits/Emacs-Refresh
+- Note: The initial "~/" means "under your home directory"
+  - this is understood by [[https://en.wikipedia.org/wiki/POSIX][POSIX]] Tools, e.g. Emacs, Shells, etc.
+- From a Posix Shell (bash, zsh or ksh) you can say:
+  - cd # make sure you're in your home directory
+  - mkdir -p Gits # create Gits/ if it doesn't exist yet
+    - from a Microsoft Windows Command Prompt: md Gits
+  - cd Gits/
+  - git clone https://github.com/GregDavidson/Emacs-Refresh.git
+  - ls # You should see Emacs-Refresh
+    - from a Microsoft Windows Command Prompt: dir/w
+  - cd Emacs-Refresh
+  - ls # You're in our Working Directory!
+
+*** Where's The Simplest Place To Put It Afterwards?
+
+You could make it be your ~/.emacs.d/ directory
+- This is best if you're using Microsoft Windows
+  - as Microsoft Windows lacks [[https://en.wikipedia.org/wiki/POSIX][POSIX]] symbolic links
+  - see [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-HOME.html][Emacs Profile under Microsoft Windows]]
+- It's also fine on a [[https://en.wikipedia.org/wiki/POSIX][POSIX]] system if you really like us
+- If this is what you'd like to do, just move & rename the folder to ~/.emacs.d
+  - or wherever Microsoft Windows expects it to be
+
+But read on for a more flexible option!
+
+*** Where's A More Flexible Place To Put It?
+
+- Leave our Repository in its own well-named directory
+  - We'll assume ~/Gits/Emacs-Refresh/ but you can put it where you wish.
+- Then link what you need from there into your ~/.emacs.d/
+
+Using a Command Shell from our Working Directory
+- cd ~/Gits/Emacs-Refresh # or wherever you put it
+- make install # if you trust us, or:
+- make -n install # to see a dry-run first!
+
+Or you can finish the install manually from the shell
+- # Assuming your shell is bash, zsh or ksh:
+- cd ~/Gits/Emacs-Refresh # or wherever you put it
+- mkdir -p ~/.emacs.d/My-Emacs
+- # first save any profile files you already have:
+- mv -f ~/.emacs ~/emacs.d/early-init.el ~/.emacs.d/init.d ~/.emacs.d/My-Emacs
+- # then link our files into place:
+- ln -s  ~+/early-init.el ~+/.emacs.d/init.d ~+/Emacs-Refresh ~/.emacs.d/
 
 ** Emacs-Refresh is /Non-Destructively Hackable!/
 
-- Our init files automatically load your files!
-  - early-init.el loads ~My-Emacs/early-init.el~ /first/ if it exists
-  - init.el loads ~My-Emacs/init.el~ /last/ if it exists
+Our init files automatically load your files!
+- early-init.el loads My-Emacs/early-init.el /first/ if it exists
+- init.el loads My-Emacs/init.el /last/ if it exists
 
-- So don't change any of our files, i.e.
-  - early-init.el or init.el
-  - or anything under Emacs-Refresh/
+So don't change any of our files, i.e.
+- Don't change early-init.el or init.el
+- or anything under Emacs-Refresh/
 
-- Suppress or modify any of the features we provide
-  - with feature flags in your ~My-Emacs/early-init.el~ file
-  - read our ~early-init.el~ for more details!
-- Put your extensions in My-Emacs/init.el
-  - and load any other files you like from there!
+Suppress or modify any of the features we provide
+- with feature flags in your My-Emacs/early-init.el file!
+- Read early-init.el for more details!
 
-You can put your files anywhere in your ~/.emacs.d as you like
-- but note that a number of Emacs Packages 
+Put your extensions in My-Emacs/init.el
+- and load any other files you like from there!
 
-      the main .el files here, you can do all of your own
-  hacking in your own files, and then simply do a
-  ~git update~ on the repository to get any improvements
-  without messing with 
+You can put your files anywhere in your /.emacs.d/ but:
+- Because many Emacs Packages create files and subdirectories there
+- we prefer to keep all of our customizations under My-Emacs/
+
+** You can update your Emacs-Refresh as you wish
+
+Whenever there's a version of Emacs-Refresh
+- for example, targeting new features of Emacs or Emacs Packages we like
+You can use ~git~ to get the latest version of Emacs-Refresh
+- cd ~/Gits/Emacs-Refresh # or wherever you put it
+- git status
+  - # if this doesn't work, you're not in the correct directory!
+- git pull

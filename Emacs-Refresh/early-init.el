@@ -2,29 +2,6 @@
 
 ;; ** Default emacs-new feature alist
 
-;; Most features are enabled by NOT including them at all here!
-(define emacs-new-feature-alist
-	"Emacs-New Feature-Symbol->Value Association List, values are USUALLY booleans"
-	'() )
-
-;; Explicitly include or exclude boolean features like this:
-;; (push emacs-new-feature-alist '(include-by-default . t))
-;; (push emacs-new-feature-alist '(exclude-by-default . nil))
-;; Examples of non-boolean features
-;; (push emacs-new-feature-alist '(foreground-color . "#000000"))
-;; (push emacs-new-feature-alist '(background-color . "#ffffff"))
-
-(defun use-feature? (feature-name)
-  "return the value associated with feature-name using eq in emacs-new-feature-alist or nil if not found"
-  (let ( (feature (assq feature-name emacs-new-feature-alist)) )
-    (and feature (cdr feature)) ) )
-
-(defmacro use-feature: (feature-name)
-  `(use-feature ',feature-name) )
-
-;; Be sure to explore what features are in use
-;; $ rg -t lisp "[(]use-feature?  *'"
-;; $ rg -g '*.el' "[(]use-feature?  *'"
 
 ;; ** Startup speed, annoyance suppression
 
