@@ -37,7 +37,7 @@ Emacs-Refresh is New!
 *** If you're on an Apple Macintosh System
 - MacOS is based on a [[https://en.wikipedia.org/wiki/POSIX][POSIX]] ([[https://en.wikipedia.org/wiki/List_of_BSD_operating_systems][BSD]]) Operating System, but:
   - Apple doesn't provide Developer (Build) Tools by default!
-  - You'll want to install at least ~git~ and ~make~ and ~emacs~
+  - You'll want to install at least ~git~ and ~emacs~
 - You have many options, here are two:
   - You can install [[https://developer.apple.com/documentation/xcode/installing-the-command-line-tools][Apple's POSIX Developer Tools]]
     - Note that some of these tools are a bit out of date!
@@ -88,12 +88,14 @@ But read on for a more flexible option!
   - We'll assume ~/Gits/Emacs-Refresh/ but you can put it where you wish.
 - Then link what you need from there into your ~/.emacs.d/
 
-Using a Command Shell from our Working Directory
-- cd ~/Gits/Emacs-Refresh # or wherever you put it
-- make install # if you trust us, or:
-- make -n install # to see a dry-run first!
+If you have a typical POSIX Development Environment
+- You can run our install script by typing
+  - bash ./install.bash
+- Help is available by running
+  - bash ./install.bash help
+- Or you can read the script.
 
-Or you can finish the install manually from the shell
+Or you can do the install manually from the shell
 - # Assuming your shell is bash, zsh or ksh:
 - cd ~/Gits/Emacs-Refresh # or wherever you put it
 - mkdir -p ~/.emacs.d/My-Emacs
@@ -101,6 +103,11 @@ Or you can finish the install manually from the shell
 - mv -f ~/.emacs ~/emacs.d/early-init.el ~/.emacs.d/init.d ~/.emacs.d/My-Emacs
 - # then link our files into place:
 - ln -s  ~+/early-init.el ~+/.emacs.d/init.d ~+/Emacs-Refresh ~/.emacs.d/
+  - Note: '~+/' expands into the absolute path to a file.
+  - You can see this if you run: echo ~+/early-init.el
+
+Or if you prefer doing such things from a Graphical Shell
+- Have at it!
 
 ** Emacs-Refresh is /Non-Destructively Hackable!/
 

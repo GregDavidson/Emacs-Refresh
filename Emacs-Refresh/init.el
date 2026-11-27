@@ -358,12 +358,8 @@
 ;; Tools for academic researchers
 ;(load-file (expand-file-name "extras/researcher.el" user-emacs-directory))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;;   Built-in customization framework
-;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ** Load Settings from Emacs Customization System
 
-;; Also in early-init.el
-;; (setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file 'noerror)
+(refresh-unless: no-custom-file
+ (load custom-file 'noerror)
+)

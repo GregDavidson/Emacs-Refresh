@@ -1,5 +1,9 @@
 ;; * My Emacs Utility Functions -*- lexical-binding: t; -*-
 
+
+;; Utility functions used by other Emacs-Refresh code files.
+;; Compile this file and load it during the Early-Init phase!
+
 ;; ** Requires
 ;; cl-lib and ert are now part of standard gnu emacs,
 ;; you just need to import their symbols.
@@ -110,7 +114,7 @@
 )
     
 
-;; ** (my) needs (contense-context) and (after-alist)
+;; ** (my) needs (condense-context) and (after-alist)
 
 (cl-defun foo (type-predicate value
 			      &rest context
@@ -179,6 +183,10 @@
 (defun file-exists? (f)
   "file-true-attributes not nil"
   (file-true-attributes f) )
+
+(defun no-file? (f)
+  "not file-exists?"
+  (not (file-exists? f)) )
 
 (defun directory-exists? (d)
   "ninth element of file-true-attributes begins with d - not portable!!"
